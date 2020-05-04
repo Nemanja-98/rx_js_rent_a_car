@@ -3,26 +3,10 @@
   <head>
     <title>Getting Started</title>
     <link rel = "stylesheet" type = "text/css" href = "style.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8LlLC-YVOClHXc5gwrOy_AE2e3-h3MVo&callback=initMap"
+    async defer></script>
   </head>
   <body>
     <script src="./main.js"></script>
-    <script>
-      var map;
-      function initMap() {
-        const div=document.getElementsByClassName("divMap");
-        console.log(div);
-        map = new google.maps.Map(div[0], {
-          center: {lat: 43.3209, lng: 21.8958},
-          zoom: 16
-        });
-        let marker = new google.maps.Marker({
-          position: {lat: 43.3209, lng: 21.895 },
-          map:map,
-        })
-      }
-    </script>
-
   </body>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8LlLC-YVOClHXc5gwrOy_AE2e3-h3MVo&callback=initMap"
-    async defer></script>
 </html>

@@ -41,28 +41,21 @@ function getCars(host) {
 
 function getFuels(host) {
     console.log("get Fuels called");
-    
     const h2=document.createElement("h2");
     h2.innerHTML="List of available Fuels for your car";
-
     host.appendChild(h2);
 }
 
 function drawMap(host) {
     console.log("draw Map called");
-    
-    // const h2=document.createElement("h2");
-    // h2.innerHTML="Map";
-    
-    // host.appendChild(h2);
+    const h2=document.createElement("h2");
+    h2.innerHTML="Map";
+    host.appendChild(h2);
 }
 
 function drawButtons(host) {
     console.log("draw Buttons called");
-
-    
     const h2=document.createElement("h2");
     h2.innerHTML="Press Confirm to go to next step.";
-
     host.appendChild(h2);
 }

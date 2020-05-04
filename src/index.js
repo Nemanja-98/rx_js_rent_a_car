@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import drawMain from './drawPage';
-//import Mapa from '../src/map';
+import Mapa from '../src/map';
 
 // function component() {
 //     const element = document.createElement('div');
@@ -15,4 +15,5 @@ import drawMain from './drawPage';
 //   }
   //document.body.appendChild(component());
   drawMain(document.body);
+  Mapa();
   
