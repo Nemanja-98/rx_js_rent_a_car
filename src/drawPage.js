@@ -36,7 +36,6 @@ function getCars(host) {
     console.log("get Cars called");
     const h2=document.createElement("h2");
     h2.innerHTML="List of available Cars";
-    
     host.appendChild(h2);
 }
 
@@ -51,12 +50,11 @@ function getFuels(host) {
 
 function drawMap(host) {
     console.log("draw Map called");
-
     
-    const h2=document.createElement("h2");
-    h2.innerHTML="Map";
+    // const h2=document.createElement("h2");
+    // h2.innerHTML="Map";
     
-    host.appendChild(h2);
+    // host.appendChild(h2);
 }
 
 function drawButtons(host) {

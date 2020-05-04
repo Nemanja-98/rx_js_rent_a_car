@@ -8,9 +8,10 @@ const type = {
 }
 
 export class Fuel {
-    constructor(typeKey, octane) {
+    constructor(typeKey, octane,price) {
         this.type = type[typeKey];
         this.octane = octane;
+        this.pricePerLitre=price;
     }
 }
 
