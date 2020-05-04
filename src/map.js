@@ -5,13 +5,12 @@ export default function fun() {
     });
     mapa.className = "map";
     const icon = {
-        url: "https://library.kissclipart.com/20180925/rpe/kissclipart-map-car-icon-clipart-car-google-maps-navigation-c81a6a2d0ecb7a15.png", // url
         scaledSize: new google.maps.Size(50, 50), // scaled size
         origin: new google.maps.Point(0,0), // origin
-        anchor: new google.maps.Point(0, 0) // anchor
+        anchor: new google.maps.Point(46.3209, 26.895) // anchor
     };
     let marker = new google.maps.Marker({
-        position: { lat: 43.3209, lng: 21.895 },
+        position: { lat: 43.331509, lng: 21.8925639 },
         map: mapa,
         icon:icon,
     })
