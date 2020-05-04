@@ -1,0 +1,40 @@
+{
+    "cars":[
+        {
+            "id":0,
+            "name":"Fiat 500L",
+            "year":2003,
+            "fuelType":"Gasoline",
+            "kpl":8.5,
+            "engine":"v4",
+            "mileage":109506,
+            "grades":["comfort:5","performance:4","utility:3","durability:2","design:3.5"],
+            "img":"neki link1",
+            "downPayment":75
+        },
+        {
+            "id":1,
+            "name":"Fiat Punto",
+            "year":2008,
+            "fuelType":"Petroleum",
+            "kpl":6,
+            "engine":"v2",
+            "mileage":82506,
+            "grades":["comfort:2","performance:3","utility:2","durability:1","design:2.5"],
+            "img":"neki link2",
+            "downPayment":30
+        },
+        {
+            "id":2,
+            "name":"Renault Clio",
+            "year":2010,
+            "fuelType":"Compressed Natural Gas",
+            "kpl":9,
+            "engine":"2005Tdi",
+            "mileage":52506,
+            "grades":["comfort:2","performance:3","utility:2","durability:2.5","design:3.5"],
+            "img":"neki link3",
+            "downPayment":45
+        }
+    ]
+}
