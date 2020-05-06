@@ -27,7 +27,7 @@ export default function fun() {
                 info: '<h4>Targeted Destination</h4>',
                 iconImg: 'http://maps.google.com/mapfiles/kml/pal3/icon60.png'
             });
-            getDirectoins(first,second);
+           // getDirectoins(first,second); uncomment when your api gets approval
         }
 
     })
