@@ -1,8 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['babel-polyfill','./src/index.ts'],
   devtool: 'inline-source-map',
+  resolve: {
+    extentions: ['.ts','.js','.json']
+  },
   output: {
     path:  __dirname + '/dist',
     filename: 'main.js',
@@ -11,15 +14,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.m?.js$/,
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["babel-preset-env"]
+            presets: ["@babel/preset-env"]
           }
         }
-      }
+      },
+      // {
+      //   test: /\.ts$, loader: "ts-loader"
+      // }
     ]
   },
   devServer: {
