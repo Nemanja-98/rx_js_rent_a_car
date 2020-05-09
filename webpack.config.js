@@ -1,35 +1,30 @@
 const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: ['babel-polyfill','./src/index.ts'],
-  devtool: 'inline-source-map',
-  resolve: {
-    extentions: ['.ts','.js','.json']
-  },
-  output: {
-    path:  __dirname + '/dist',
-    filename: 'main.js',
-    publicPath: '/'
-  },
+  entry: './src/index.ts',
+  devtool: 'source-map',
   module: {
     rules: [
-      {
-        test: /\.m?.js$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"]
-          }
-        }
-      },
-      // {
-      //   test: /\.ts$, loader: "ts-loader"
-      // }
+      { test: /\.ts?$/, loader: "awesome-typescript-loader" },
     ]
   },
+  resolve: {
+    extensions: [ '.ts', '.js', '.json' ],
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+			filename: 'index.html',
+			template: './src/index.html',
+			inject: 'body'
+    })
+  ],
   devServer: {
-         contentBase: './dist',
-         hot:true,
-       },
+        hot: true,
+        historyApiFallback: true,
+	}
 };

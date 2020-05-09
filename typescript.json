@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "removeComments": true,
+      "useBabel": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "babelOptions": {
+          "babelrc": true
+      },
+      "babelCore": "@babel/core"
+    }
+  }

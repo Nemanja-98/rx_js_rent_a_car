@@ -1,32 +1,28 @@
 {
-  "name": "project1",
+  "name": "config",
   "version": "1.0.0",
   "description": "",
-  "private": true,
-  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development --open",
-    "build": "babel src -d public"
+    "build": "webpack",
+    "start": "webpack-dev-server --history-api-fallback --open"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.1.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@types/node": "^13.13.5",
+    "awesome-typescript-loader": "^5.2.1",
+    "html-webpack-plugin": "^4.3.0",
+    "ts-loader": "^7.0.3",
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "lodash": "^4.17.15",
-    "ts-loader": "^7.0.3"
+    "@types/google-maps": "^3.2.2",
+    "@types/googlemaps": "^3.39.4",
+    "@types/webrtc": "0.0.26"
   }
 }
