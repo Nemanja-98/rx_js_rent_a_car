@@ -42,13 +42,15 @@
           "id":0,
           "name":"Gasoline",
           "purity": 75,
-          "price": 1.45
+          "price": 1.45,
+          "availableInCar": [0,1,2]
       },
       {
           "id":1,
           "name":"Petrol",
           "purity": 95,
-          "price": 1.75
+          "price": 1.75,
+          "availableInCar": [0,2]
       }
   ]
 }

@@ -1,5 +1,5 @@
 import {} from 'google-maps';
-
+//var google:any;
 export default function fun() {
     const map = new google.maps.Map(document.getElementsByClassName("divMap")[0], {
         // Gradsko polje coords
