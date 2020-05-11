@@ -1,6 +1,6 @@
 import drawMain from './drawPage';
 import Mapa from './map';
-
+import Rates from './currency'
 // const mainDiv = document.getElementById("main");
 // if (mainDiv) {
 // 		mainDiv.innerHTML = "Hello World !";
@@ -12,5 +12,6 @@ import Mapa from './map';
 
 // console.log(fruits)
 
-drawMain(document.body);
-Mapa();
+//drawMain(document.body);
+//Mapa();
+//Rates();
