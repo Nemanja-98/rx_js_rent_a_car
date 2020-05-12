@@ -1,34 +1,34 @@
 export default function drawMain(host) {
-    console.log("draw Main called");
+    
     const container = document.createElement("div");
     container.className = "container";
 
     const divLists = document.createElement("div");
-    divLists.className = "divLists";
+    divLists.className = "divLists container";
 
     const divCars = document.createElement("div");
-    divCars.className = "divCars";
+    divCars.className = "divCars container";
     getCars(divCars);
 
     const divFuels = document.createElement("div");
-    divFuels.className = "divFuels";
+    divFuels.className = "divFuels container";
     getFuels(divFuels);
 
     divLists.appendChild(divCars);
     divLists.appendChild(divFuels);
 
     const divMap = document.createElement("div");
-    divMap.className = "divMap";
+    divMap.className = "divMap container";
     divMap.setAttribute("style","height:500px");
     //divMap.setAttribute("width","1000px");
     drawMap(divMap);
 
     const divCurrency = document.createElement("div");
-    divCurrency.className = "divCurrency";
+    divCurrency.className = "divCurrency container";
     drawCurrency(divCurrency);
 
     const divFinalize = document.createElement("div");
-    divFinalize.className = "divFinalize";
+    divFinalize.className = "divFinalize container";
     drawButtons(divFinalize);
 
     container.appendChild(divLists);
@@ -40,11 +40,13 @@ export default function drawMain(host) {
 };
 
 function getCars(host) {
-    console.log("get Cars called");
+   
     const h2=document.createElement("h2");
     h2.innerHTML="List of available Cars";
+    h2.className="row"
 
     const lista = document.createElement("div");
+    lista.className="row"
 
     fetch('https://my-json-server.typicode.com/Nemanja-98/rx_js_rent_a_car/cars')
     .then(res => res.json())
@@ -52,7 +54,7 @@ function getCars(host) {
         let output="";
         data.forEach((car) =>{
             output+=`
-            <ul>
+            <ul class="card col-3">
             <li>ID: ${car.id}</li>
             <li>Name: ${car.name}</li>
             <li>Year: ${car.year}</li>
@@ -72,11 +74,13 @@ function getCars(host) {
 }
 
 function getFuels(host) {
-    console.log("get Fuels called");
+    
     const h2=document.createElement("h2");
     h2.innerHTML="List of available Fuels for your car";
+    h2.className="row"
 
     const lista = document.createElement("div");
+    lista.className="row"
 
     fetch('https://my-json-server.typicode.com/Nemanja-98/rx_js_rent_a_car/fuels')
     .then(res => res.json())
@@ -84,7 +88,7 @@ function getFuels(host) {
         let output="";
         data.forEach((fuels) =>{
             output+=`
-            <ul>
+            <ul class="card col-4">
             <li>ID: ${fuels.id}</li>
             <li>Name: ${fuels.name}</li>
             <li>Purity: ${fuels.purity}</li>
@@ -98,22 +102,25 @@ function getFuels(host) {
 }
 
 function drawMap(host) {
-    console.log("draw Map called");
+   
     const h2=document.createElement("h2");
     h2.innerHTML="Map";
+    h2.className="row"
     host.appendChild(h2);
 }
 
 function drawCurrency(host){
-    console.log("draw Currency called");
+   
     const h2=document.createElement("h2");
     h2.innerHTML="Estimated Price of Trip";
+    h2.className="row"
     host.appendChild(h2);
 }
 
 function drawButtons(host) {
-    console.log("draw Buttons called");
+   
     const h2=document.createElement("h2");
     h2.innerHTML="Press Confirm to go to next step.";
+    h2.className="row"
     host.appendChild(h2);
 }

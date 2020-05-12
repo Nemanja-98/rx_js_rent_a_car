@@ -6,8 +6,7 @@ export default function fun() {
         center: { lat: 43.329984, lng: 21.89525 },
         zoom: 16
     });
-    //map.className = "map";
-
+    
     let first;
     let second;
     google.maps.event.addListener(map, 'click', (event) => {
