@@ -1,5 +1,5 @@
 
-import Preloader from './preloader.gif';
+//import Preloader from './preloader.gif';
 
 //console.log(Fiat);
 
@@ -32,14 +32,14 @@ export default function drawMain(host) {
     divCurrency.className = "divCurrency container";
     drawCurrency(divCurrency);
 
-    const divFinalize = document.createElement("div");
-    divFinalize.className = "divFinalize container";
-    drawButtons(divFinalize);
+    // const divFinalize = document.createElement("div");
+    // divFinalize.className = "divFinalize container";
+    // drawButtons(divFinalize);
 
     container.appendChild(divLists);
     container.appendChild(divMap);
     container.appendChild(divCurrency);
-    container.appendChild(divFinalize);
+   // container.appendChild(divFinalize);
 
     host.appendChild(container);
 };
@@ -52,8 +52,9 @@ function getCars(host) {
 
     const lista = document.createElement("div");
     lista.className="row"
-    const preloader = document.createElement("img")
-    preloader.src=Preloader;
+    const preloader = document.createElement("div")
+    preloader.className="spinner-border text-info";
+
 
     lista.appendChild(preloader);
 
@@ -62,12 +63,11 @@ function getCars(host) {
     .then((data)=>{
         let output="";
         setTimeout( () =>{
-            console.log(data);
         data.forEach((car) =>{
             output+=`
-            <ul class="card col-4">
+            <ul class="card col-3">
             <img class="card-img-top" src=${car.img} height=100 width=100></img>
-            <li>Name: ${car.name}</li>
+            <label>Name: ${car.name}</label>
             <button class="row btn btn-info">View Details</button>
             <li hidden=true>Year: ${car.year}</li>
             <li hidden=true>Fuel: ${car.fuelType}</li>
@@ -94,8 +94,8 @@ function getFuels(host) {
     const lista = document.createElement("div");
     lista.className="row"
     setTimeout(() => {
-        const preloader = document.createElement("img")
-        preloader.src=Preloader;
+        const preloader = document.createElement("div")
+        preloader.className="spinner-border text-info";
         lista.appendChild(preloader);
         
     }, 3200);
@@ -136,20 +136,26 @@ function drawCurrency(host){
     host.appendChild(h2);
 }
 
-function drawButtons(host) {
+// function drawButtons(host) {
    
-    const h2=document.createElement("h2");
-    h2.innerHTML="Press Confirm to go to next step.";
-    h2.className="row"
-    host.appendChild(h2);
-}
+//     const h2=document.createElement("h2");
+//     h2.innerHTML="Press Confirm to go to next step.";
+//     h2.className="row"
+//     host.appendChild(h2);
+// }
 
-function btnClick(event){
-    console.log(event.target.parentNode);
+export function btnClick(event){
+    event.target.innerHTML==="View Details" ?
+    event.target.innerHTML="Hide Details" : 
+    event.target.innerHTML="View Details";
     event.target.parentNode.childNodes.forEach(element => {
         element.hidden===true?
          element.hidden=false :
-         element.hidden!==""? element.hidden=true : element.hidden="";
-        
+         element.tagName==="LI" ? element.hidden=true: null;
     });
+}
+// to do
+export function selectedElement(event){
+    console.log(event.target);
+    event.target.classList.add("bg-primary");
 }
