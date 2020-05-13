@@ -20,6 +20,6 @@ setTimeout(() => {
     const uls = document.querySelectorAll('ul');
     console.log("ULS",uls);
     uls.forEach( (el) => {
-        el.addEventListener('click', selectedElement)
+        el.addEventListener('click', selectedElement);
     })
 }, 6000);

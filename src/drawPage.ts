@@ -75,7 +75,7 @@ function getCars(host) {
             <li hidden=true>Engine: ${car.engine}</li>
             <li hidden=true>Mileage: ${car.mileage}</li>
             <li hidden=true>Grades: ${car.grades}</li>
-            <li hidden=true>Down Payment: ${car.downPayment}$</li>
+            <li hidden=true>Down Payment: ${car.downPayment}€</li>
             </ul>`;
         })
         lista.innerHTML=output;
@@ -110,7 +110,7 @@ function getFuels(host) {
             <li>ID: ${fuels.id}</li>
             <li>Name: ${fuels.name}</li>
             <li>Purity: ${fuels.purity}</li>
-            <li>Price Per Litre: ${fuels.price}</li>
+            <li>Price Per Litre: ${fuels.price}€</li>
             </ul>`;
         })
         lista.innerHTML=output;
@@ -133,7 +133,25 @@ function drawCurrency(host){
     const h2=document.createElement("h2");
     h2.innerHTML="Estimated Price of Trip";
     h2.className="row"
+
+    const div = document.createElement("div");
+    div.className = "row";
+
+    const divDistance = document.createElement("div");
+    divDistance.className = "col-4 distance";
+
+    const divEuro = document.createElement("div");
+    divEuro.className = "col-4 euro";
+
+    const divRsd = document.createElement("div");
+    divRsd.className = "col-4 rsd";
+
+    div.appendChild(divDistance);
+    div.appendChild(divEuro);
+    div.appendChild(divRsd);
+
     host.appendChild(h2);
+    host.appendChild(div);
 }
 
 // function drawButtons(host) {
@@ -148,6 +166,7 @@ export function btnClick(event){
     event.target.innerHTML==="View Details" ?
     event.target.innerHTML="Hide Details" : 
     event.target.innerHTML="View Details";
+
     event.target.parentNode.childNodes.forEach(element => {
         element.hidden===true?
          element.hidden=false :
@@ -156,6 +175,14 @@ export function btnClick(event){
 }
 // to do
 export function selectedElement(event){
-    console.log(event.target);
-    event.target.classList.add("bg-primary");
+    if(event.target.tagName!=='BUTTON'){
+        unselectPrevious(this.parentNode.childNodes);        
+        this.classList.add("bg-primary");
+    }
+}
+function unselectPrevious(array){
+    array.forEach(element => {
+        if(element.classList!=null)
+            element.classList.remove("bg-primary");
+    });
 }
