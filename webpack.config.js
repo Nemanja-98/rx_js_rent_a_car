@@ -6,7 +6,14 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader',
+        ],
+      },
       { test: /\.ts?$/, loader: "awesome-typescript-loader" },
+
     ]
   },
   resolve: {

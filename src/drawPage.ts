@@ -1,3 +1,9 @@
+
+import Fiat from './abcdefg.png';
+const punto = require('./assets/clio.png');
+console.log(punto);
+console.log(Fiat);
+
 export default function drawMain(host) {
     
     const container = document.createElement("div");
@@ -54,17 +60,17 @@ function getCars(host) {
         let output="";
         data.forEach((car) =>{
             output+=`
-            <ul class="card col-3">
-            <li>ID: ${car.id}</li>
+            <ul class="card col-4">
+            <img class="card-img-top" src=${Fiat} height=100 width=100></img>
             <li>Name: ${car.name}</li>
-            <li>Year: ${car.year}</li>
-            <li>Fuel: ${car.fuelType}</li>
-            <li>Km per Litre: ${car.kpl}</li>
-            <li>Engine: ${car.engine}</li>
-            <li>Mileage: ${car.mileage}</li>
-            <li>Grades: ${car.grades}</li>
-            <li>Img: ${car.img}</li>
-            <li>Down Payment: ${car.downPayment}</li>
+            <button class="row btn btn-info">View Details</button>
+            <li hidden=true>Year: ${car.year}</li>
+            <li hidden=true>Fuel: ${car.fuelType}</li>
+            <li hidden=true>Km per Litre: ${car.kpl}</li>
+            <li hidden=true>Engine: ${car.engine}</li>
+            <li hidden=true>Mileage: ${car.mileage}</li>
+            <li hidden=true>Grades: ${car.grades}</li>
+            <li hidden=true>Down Payment: ${car.downPayment}$</li>
             </ul>`;
         })
         lista.innerHTML=output;
@@ -123,4 +129,14 @@ function drawButtons(host) {
     h2.innerHTML="Press Confirm to go to next step.";
     h2.className="row"
     host.appendChild(h2);
+}
+
+function btnClick(event){
+    console.log(event.target.parentNode);
+    event.target.parentNode.childNodes.forEach(element => {
+        element.hidden===true?
+         element.hidden=false :
+         element.hidden!==""? element.hidden=true : element.hidden="";
+        
+    });
 }
