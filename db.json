@@ -21,7 +21,7 @@
           "engine":"v2",
           "mileage":82506,
           "grades":["comfort:2","performance:3","utility:2","durability:1","design:2.5"],
-          "img":"neki link2",
+          "img":"https://lh3.googleusercontent.com/proxy/qCl7hSk8adr8LYgMPWVo78oyilDB3-pMq03nkhYMyclniyyvmqyBOP85aQqV8gNY8Nlt2dvcCRmkdCMNg8UOTFvDAubxJxyUggdD-tmvDocr8AGUR-GFirJN",
           "downPayment":30
       },
       {
@@ -33,7 +33,7 @@
           "engine":"2005Tdi",
           "mileage":52506,
           "grades":["comfort:2","performance:3","utility:2","durability:2.5","design:3.5"],
-          "img":"neki link3",
+          "img":"https://lh3.googleusercontent.com/proxy/qCl7hSk8adr8LYgMPWVo78oyilDB3-pMq03nkhYMyclniyyvmqyBOP85aQqV8gNY8Nlt2dvcCRmkdCMNg8UOTFvDAubxJxyUggdD-tmvDocr8AGUR-GFirJN",
           "downPayment":45
       }
   ],

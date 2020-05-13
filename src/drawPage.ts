@@ -1,8 +1,9 @@
 
 import Fiat from './abcdefg.png';
+import Preloader from './preloader.gif';
 const punto = require('./assets/clio.png');
 console.log(punto);
-console.log(Fiat);
+//console.log(Fiat);
 
 export default function drawMain(host) {
     
@@ -53,15 +54,20 @@ function getCars(host) {
 
     const lista = document.createElement("div");
     lista.className="row"
+    const preloader = document.createElement("img")
+    preloader.src=Preloader;
+
+    lista.appendChild(preloader);
 
     fetch('https://my-json-server.typicode.com/Nemanja-98/rx_js_rent_a_car/cars')
     .then(res => res.json())
     .then((data)=>{
         let output="";
+        setTimeout( () =>{
         data.forEach((car) =>{
             output+=`
             <ul class="card col-4">
-            <img class="card-img-top" src=${Fiat} height=100 width=100></img>
+            <img class="card-img-top" src=${car.img} height=100 width=100></img>
             <li>Name: ${car.name}</li>
             <button class="row btn btn-info">View Details</button>
             <li hidden=true>Year: ${car.year}</li>
@@ -74,6 +80,7 @@ function getCars(host) {
             </ul>`;
         })
         lista.innerHTML=output;
+        },3000);
     })
     host.appendChild(h2);
     host.appendChild(lista);
@@ -87,11 +94,17 @@ function getFuels(host) {
 
     const lista = document.createElement("div");
     lista.className="row"
-
+    setTimeout(() => {
+        const preloader = document.createElement("img")
+        preloader.src=Preloader;
+        lista.appendChild(preloader);
+        
+    }, 3200);
     fetch('https://my-json-server.typicode.com/Nemanja-98/rx_js_rent_a_car/fuels')
     .then(res => res.json())
     .then((data)=>{
         let output="";
+        setTimeout(() => {
         data.forEach((fuels) =>{
             output+=`
             <ul class="card col-4">
@@ -102,6 +115,7 @@ function getFuels(host) {
             </ul>`;
         })
         lista.innerHTML=output;
+        }, 5000);
     })
     host.appendChild(h2);
     host.appendChild(lista);

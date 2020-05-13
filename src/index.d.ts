@@ -1,5 +1,9 @@
 declare module 'googlemaps';
 declare module "*.png" {
     const value: any;
-    export default value;
+    export = value;
   }
+declare module "*.gif" {
+    const value: any;
+    export = value;
+}
