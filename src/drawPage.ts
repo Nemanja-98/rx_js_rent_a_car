@@ -62,6 +62,7 @@ function getCars(host) {
     .then((data)=>{
         let output="";
         setTimeout( () =>{
+            console.log(data);
         data.forEach((car) =>{
             output+=`
             <ul class="card col-4">
