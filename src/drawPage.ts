@@ -1,8 +1,6 @@
 
-import Fiat from './abcdefg.png';
 import Preloader from './preloader.gif';
-const punto = require('./assets/clio.png');
-console.log(punto);
+
 //console.log(Fiat);
 
 export default function drawMain(host) {
