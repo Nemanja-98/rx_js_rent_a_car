@@ -110,10 +110,10 @@ async function getDirectoins(start, finish) {
 }
 //tried and true example nis-belgrade distance and travel time WORKS
   //https://maps.googleapis.com/maps/api/distancematrix/json?origins=43.329984,21.89525&destinations=44.787197,20.457273&departure_time=now
-  //&key=AIzaSyBrxIhDsh9RhzdmzLgu3xrQtrfhlRntwY4
+  //&key=
 
   // fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${request.origin.lat},${request.origin.lng}
-  // &destinations=${request.destination.lat},${request.destination.lng}&key=AIzaSyBrxIhDsh9RhzdmzLgu3xrQtrfhlRntwY4`)
+  // &destinations=${request.destination.lat},${request.destination.lng}&key=`)
   // .then(res =>res.json())
   // .then(data => { console.log(data)})
   // .catch(err => console.log(err)); doesnt work 
