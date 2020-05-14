@@ -1,7 +1,10 @@
 import {} from "google-maps";
 import axios from 'axios'
-//axios.defaults.headers.common['Access-Control-Allow-Origin']='*';
-//var google:any;
+
+
+export let firstMarker;
+export let secondMarker;
+
 export default function fun() {
   const map = new google.maps.Map(
     document.getElementsByClassName("divMap")[0],
@@ -12,27 +15,25 @@ export default function fun() {
     }
   );
 
-  let first;
-  let second;
   google.maps.event.addListener(map, "click", (event) => {
-    if (first && second) {
-      first.setMap(null);
-      second.setMap(null);
-      first = second = null;
+    if (firstMarker && secondMarker) {
+      firstMarker.setMap(null);
+      secondMarker.setMap(null);
+      firstMarker = secondMarker = null;
     }
-    if (!first) {
-      first = addMarker({
+    if (!firstMarker) {
+      firstMarker = addMarker({
         coordinates: event.latLng,
         info: "<h4>Starting Point</h4>",
         iconImg: "http://maps.google.com/mapfiles/kml/pal5/icon12.png",
       });
     } else {
-      second = addMarker({
+      secondMarker = addMarker({
         coordinates: event.latLng,
         info: "<h4>Targeted Destination</h4>",
         iconImg: "http://maps.google.com/mapfiles/kml/pal3/icon60.png",
       });
-      getDirectoins(first, second); //uncomment when your api gets approval
+      getDirectoins(firstMarker, secondMarker);
     }
   });
 
@@ -106,6 +107,7 @@ async function getDirectoins(start, finish) {
   } catch (err) {
     console.log(err);
   }
+  console.log(map);
 }
 }
 //tried and true example nis-belgrade distance and travel time WORKS

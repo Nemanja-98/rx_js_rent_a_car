@@ -6,17 +6,17 @@ import drawMain,{ btnClick, selectedElement, getCars, getFuels} from "./drawPage
 
 import {Store} from './models/Store';
 import {Fuel} from './models/Fuels';
-import axios from 'axios';
+
 drawMain(document.body);
 
 const prod = new Store("RxjsStore","Aleksandra Medvedeva 14","8-16");
 getCars(prod);
-//prod.iscrtaj();
+
 
 let fuels= new Array<Fuel>();
 getFuels(fuels);
 
-//Mapa();
+Mapa();
 
 setTimeout(() => {
   const buttons = document.querySelectorAll("button");
@@ -28,7 +28,7 @@ setTimeout(() => {
   uls.forEach((el) => {
     el.addEventListener("click", selectedElement);
   });
-}, 6000);
+}, 7000);
 
 /*
 for economic cars section filter whose kpl is above 0.8  then map kpl* dinar_value then multiply each el by 100 

@@ -1,12 +1,10 @@
-//import Preloader from './preloader.gif';
-
 import { Store } from "./models/Store";
 import { Car } from "./models/Car";
-import fun from "./map";
+import {firstMarker,secondMarker} from "./map";
 import { Fuel } from "./models/Fuels";
 import { calculateCost } from "./currency";
-import {of} from 'rxjs'
-import {switchMap} from 'rxjs/operators'
+import {of, zip} from 'rxjs'
+import {switchMap,map,take} from 'rxjs/operators'
 
 export default function drawMain(host) {
   const container = document.createElement("div");
@@ -39,6 +37,14 @@ export default function drawMain(host) {
   // const divFinalize = document.createElement("div");
   // divFinalize.className = "divFinalize container";
   // drawButtons(divFinalize);
+  const validateInputBtn = document.createElement("anchor");
+  validateInputBtn.innerHTML = "Validate Input";
+  validateInputBtn.className = "btn btn-primary";
+  validateInputBtn.setAttribute("data-toggle","modal");
+  validateInputBtn.setAttribute("data-target","#myModal");
+  validateInputBtn.addEventListener('click',validateInput);
+
+  divCurrency.appendChild(validateInputBtn);
 
   container.appendChild(divLists);
   container.appendChild(divMap);
@@ -75,28 +81,14 @@ export function getCars(store : Store){
           store.addCar(new Car(car.id,car.name,car.year,car.fuelType,car.kpl,car.engine,car.mileage,car.grades,car.img,car.downPayment));
           // const fields = Object.keys(car);
           // const values = Object.values(car);
-          console.log(car);
           output+= `<ul class="card col-3">
             <img class="card-img-top" src=${car.img} height=100 width=100></img>
             <label>Name: ${car.name}</label>
             <button class="row btn btn-info">View Details</button>`
           
           const switched = of(Object.entries(car)).pipe(switchMap( (el) => el));
-          switched.subscribe( x => output+=`<li hidden=true>${x[0]}: ${x[1]}</li>`);
+          switched.subscribe( x => output+=`<li class="${x[0]}" hidden=true>${x[0]}: ${x[1]}</li>`);
           output+= `</ul>`
-          // output += `
-          //   <ul class="card col-3">
-          //   <img class="card-img-top" src=${car.img} height=100 width=100></img>
-          //   <label>Name: ${car.name}</label>
-          //   <button class="row btn btn-info">View Details</button>
-          //   <li hidden=true>Year: ${car.year}</li>
-          //   <li hidden=true>Fuel: ${car.fuelType}</li>
-          //   <li hidden=true>Km per Litre: ${car.kpl}</li>
-          //   <li hidden=true>Engine: ${car.engine}</li>
-          //   <li hidden=true>Mileage: ${car.mileage}</li>
-          //   <li hidden=true>Grades: ${car.grades}</li>
-          //   <li hidden=true>Down Payment: ${car.downPayment}€</li>
-          //   </ul>`;
         });
         lista.innerHTML = output;
       }, 3000);
@@ -132,7 +124,7 @@ export function getFuels(array){
           <ul class="card col-4">
           <li>Name: ${fuels.name}</li>
           <li>Purity: ${fuels.purity}</li>
-          <li>Price Per Litre: ${fuels.price}€</li>
+          <li class="ppl">Price Per Litre in €: ${fuels.price}</li>
           </ul>`;
       });
       lista.innerHTML = output;
@@ -164,7 +156,6 @@ async function drawCurrency(host) {
   const divRsd = document.createElement("div");
   divRsd.className = "col-4 rsd";
 
-  divRsd.innerHTML =String( await calculateCost(0.8,1.5));
   div.appendChild(divDistance);
   div.appendChild(divEuro);
   div.appendChild(divRsd);
@@ -172,14 +163,6 @@ async function drawCurrency(host) {
   host.appendChild(h2);
   host.appendChild(div);
 }
-
-// function drawButtons(host) {
-
-//     const h2=document.createElement("h2");
-//     h2.innerHTML="Press Confirm to go to next step.";
-//     h2.className="row"
-//     host.appendChild(h2);
-// }
 
 export function btnClick(event) {
   event.target.innerHTML === "View Details"
@@ -194,7 +177,6 @@ export function btnClick(event) {
       : null;
   });
 }
-// to do
 export function selectedElement(event) {
   if (event.target.tagName !== "BUTTON") {
     unselectPrevious(this.parentNode.childNodes);
@@ -205,4 +187,45 @@ function unselectPrevious(array) {
   array.forEach((element) => {
     if (element.classList != null) element.classList.remove("bg-primary");
   });
+}
+
+function validateInput(){
+  const validateBtn = document.querySelector("anchor");
+  validateBtn.className = "btn btn-primary";
+  validateBtn.innerHTML = "Validate Input";
+  const modal = document.querySelector(".modal-body");
+  const carSelected = of<Boolean>(Boolean(document.querySelector(".divCars").querySelector(".bg-primary")));
+  const fuelSelected = of<Boolean>(Boolean(document.querySelector(".divFuels").querySelector(".bg-primary")));
+  const isFirstMarker = of<Boolean>(Boolean(firstMarker));
+  const isSecondMarker = of<Boolean>(Boolean(secondMarker));
+  zip(carSelected,fuelSelected,isFirstMarker,isSecondMarker).pipe(
+    map(
+      ([carSelected,fuelSelected,isFirstMarker,isSecondMarker]) => 
+      ({carSelected,fuelSelected,isFirstMarker,isSecondMarker})))
+      .subscribe(async (x) => {
+        console.log(x);
+        if (x.carSelected && x.fuelSelected && x.isFirstMarker && x.isSecondMarker) {
+          validateBtn.className = "btn btn-success";
+          validateBtn.innerHTML += '✅';
+          const kpl = document.querySelector(".divCars").querySelector(".bg-primary").querySelector(".kpl");
+          console.log(kpl.textContent.substr(5));
+
+          const litres = document.querySelector(".divFuels").querySelector(".bg-primary").querySelector(".ppl");
+          console.log(litres.textContent.substr(22));
+         
+          const total =await calculateCost(Number(kpl.textContent.substr(5)),Number(litres.textContent.substr(22)));
+          console.log("total eheh",total);
+          modal.innerHTML = `The estimated Total Cost of your trip is: ${total} dinars`;
+          
+        }else{
+          validateBtn.className = "btn btn-danger";
+          validateBtn.innerHTML = '❌';
+          modal.innerHTML = `Oh, no! It seems the validation vailed. Please check your input.`;
+        }
+        setTimeout(() => {
+          validateBtn.className = "btn btn-primary";
+          validateBtn.innerHTML = "Validate Input";
+        }, 1200);
+      });
+  
 }

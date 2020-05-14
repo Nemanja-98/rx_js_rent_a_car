@@ -25,6 +25,7 @@
   "dependencies": {
     "@types/google-maps": "^3.2.2",
     "@types/googlemaps": "^3.39.4",
+    "@types/jquery": "^3.3.38",
     "@types/webrtc": "0.0.26",
     "axios": "^0.19.2",
     "json-server": "^0.16.1",

@@ -1,7 +1,7 @@
 {
   "cars": [
     {
-      "id": 0,
+      
       "name": "Fiat 500L",
       "year": 2003,
       "fuelType": "GASOLINE",
@@ -15,11 +15,11 @@
         "durability:2",
         "design:3.5"
       ],
+      "downPayment": 75,
       "img": "https://pngimage.net/wp-content/uploads/2018/06/fiat-500l-png.png",
-      "downPayment": 75
+      "id": 0
     },
     {
-      "id": 1,
       "name": "Fiat Punto",
       "year": 2008,
       "fuelType": "PETROLEUM",
@@ -33,11 +33,11 @@
         "durability:1",
         "design:2.5"
       ],
+      "downPayment": 30,
       "img": "https://pngimage.net/wp-content/uploads/2018/06/fiat-punto-png-6.png",
-      "downPayment": 30
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Renault Clio",
       "year": 2010,
       "fuelType": "CNG",
@@ -51,11 +51,12 @@
         "durability:2.5",
         "design:3.5"
       ],
+      "downPayment": 45,
       "img": "https://pngimage.net/wp-content/uploads/2018/06/renault-clio-png-1.png",
-      "downPayment": 45
+      "id": 2
     },
     {
-      "id": 3,
+     
       "name": "Lexus GX 460",
       "year": 2015,
       "fuelType": "ARKTIK",
@@ -69,11 +70,12 @@
         "durability:5",
         "design:4.5"
       ],
+      "downPayment": 85,
       "img": "https://cfx-vrf-main-imgs.imgix.net/f/8/3/21279ba91e4263bf1d40d8673566e6adec8ca38f.png?auto=format&fit=clip&w=420",
-      "downPayment": 85
+      "id": 3
     },
     {
-      "id": 4,
+      
       "name": "Opel Astra Family",
       "year": 2012,
       "fuelType": "PETROLEUM",
@@ -87,11 +89,12 @@
         "durability:2",
         "design:1.5"
       ],
+      "downPayment": 25,
       "img": "https://automobile-assets.s3.amazonaws.com/automobile/body/opel-astra-family-2011-2014-1573111766.84.png",
-      "downPayment": 25
+      "id": 4
     },
     {
-      "id": 5,
+     
       "name": "BMW X3",
       "year": 2018,
       "fuelType": "ARKTIK",
@@ -105,11 +108,11 @@
         "durability:5",
         "design:4.5"
       ],
+      "downPayment": 54,
       "img": "https://i.ya-webdesign.com/images/2017-bmw-png-1.png",
-      "downPayment": 54
+      "id": 5
     },
     {
-      "id": 6,
       "name": "Citroen C4 Picasso",
       "year": 2016,
       "fuelType": "GASOLINE",
@@ -123,11 +126,11 @@
         "durability:2",
         "design:3.5"
       ],
+      "downPayment": 40,
       "img": "https://automobile-assets.s3.amazonaws.com/automobile/body/citroen-c4-picasso-2013-2019-1523083027.37.png",
-      "downPayment": 40
+      "id": 6
     },
     {
-      "id": 7,
       "name": "Opel Corsa",
       "year": 2017,
       "fuelType": "ETHANOL",
@@ -141,8 +144,9 @@
         "durability:5",
         "design:4.5"
       ],
+      "downPayment": 15,
       "img": "https://insularcar.com/wp-content/uploads/2017/10/opel-corsa.png",
-      "downPayment": 15
+      "id": 7
     }
   ],
   "fuels": [
