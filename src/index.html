@@ -7,6 +7,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<style>
+			#notificaiton {
+				position: fixed;
+				right: 50px;
+				bottom: 50px;
+				z-index: 100;
+				display: flex;
+				flex-direction: column;
+				color: white;
+			}
+			</style>
 </head>
 
 <body>
@@ -27,7 +38,8 @@
 		  </div>
 		</div>
 	  </div>
-
+	
+	<div id='notificaiton'> </div>  
 	<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
 		async defer></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
