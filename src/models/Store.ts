@@ -5,14 +5,14 @@ export class Store {
   location: string;
   cars: Array<Car>;
   workHours: string;
-  constructor(name, location, workHours) {
+  constructor(name :string, location :string, workHours :string) {
     this.name = name;
     this.location = location;
     this.cars = [];
     this.workHours = workHours;
   }
 
-  addCar(el){
+  addCar(el : Car){
     this.cars.push(el);
   }
 }

@@ -4,8 +4,9 @@ import { Store } from "./models/Store";
 import { Car } from "./models/Car";
 import fun from "./map";
 import { Fuel } from "./models/Fuels";
-
-//console.log(Fiat);
+import { calculateCost } from "./currency";
+import {of} from 'rxjs'
+import {switchMap} from 'rxjs/operators'
 
 export default function drawMain(host) {
   const container = document.createElement("div");
@@ -70,21 +71,32 @@ export function getCars(store : Store){
     .then((data) => {
       let output = "";
       setTimeout(() => {
-        data.forEach((car) => {
-          store.addCar(new Car(car.name,car.year,car.fuelType,car.kpl,car.engine,car.mileage,car.grades,car.img,car.downPayment));
-          output += `
-            <ul class="card col-3">
+        data.forEach((car,index) => {
+          store.addCar(new Car(car.id,car.name,car.year,car.fuelType,car.kpl,car.engine,car.mileage,car.grades,car.img,car.downPayment));
+          // const fields = Object.keys(car);
+          // const values = Object.values(car);
+          console.log(car);
+          output+= `<ul class="card col-3">
             <img class="card-img-top" src=${car.img} height=100 width=100></img>
             <label>Name: ${car.name}</label>
-            <button class="row btn btn-info">View Details</button>
-            <li hidden=true>Year: ${car.year}</li>
-            <li hidden=true>Fuel: ${car.fuelType}</li>
-            <li hidden=true>Km per Litre: ${car.kpl}</li>
-            <li hidden=true>Engine: ${car.engine}</li>
-            <li hidden=true>Mileage: ${car.mileage}</li>
-            <li hidden=true>Grades: ${car.grades}</li>
-            <li hidden=true>Down Payment: ${car.downPayment}€</li>
-            </ul>`;
+            <button class="row btn btn-info">View Details</button>`
+          
+          const switched = of(Object.entries(car)).pipe(switchMap( (el) => el));
+          switched.subscribe( x => output+=`<li hidden=true>${x[0]}: ${x[1]}</li>`);
+          output+= `</ul>`
+          // output += `
+          //   <ul class="card col-3">
+          //   <img class="card-img-top" src=${car.img} height=100 width=100></img>
+          //   <label>Name: ${car.name}</label>
+          //   <button class="row btn btn-info">View Details</button>
+          //   <li hidden=true>Year: ${car.year}</li>
+          //   <li hidden=true>Fuel: ${car.fuelType}</li>
+          //   <li hidden=true>Km per Litre: ${car.kpl}</li>
+          //   <li hidden=true>Engine: ${car.engine}</li>
+          //   <li hidden=true>Mileage: ${car.mileage}</li>
+          //   <li hidden=true>Grades: ${car.grades}</li>
+          //   <li hidden=true>Down Payment: ${car.downPayment}€</li>
+          //   </ul>`;
         });
         lista.innerHTML = output;
       }, 3000);
@@ -115,10 +127,9 @@ export function getFuels(array){
     let output = "";
     setTimeout(() => {
       data.forEach((fuels) => {
-        array.push(new Fuel(data.name,data.purity,data.price));
+        array.push(new Fuel(data.id,data.name,data.purity,data.price,data.availableInCar));
         output += `
           <ul class="card col-4">
-          <li>ID: ${fuels.id}</li>
           <li>Name: ${fuels.name}</li>
           <li>Purity: ${fuels.purity}</li>
           <li>Price Per Litre: ${fuels.price}€</li>
@@ -136,7 +147,7 @@ function drawMap(host) {
   host.appendChild(h2);
 }
 
-function drawCurrency(host) {
+async function drawCurrency(host) {
   const h2 = document.createElement("h2");
   h2.innerHTML = "Estimated Price of Trip";
   h2.className = "row";
@@ -153,6 +164,7 @@ function drawCurrency(host) {
   const divRsd = document.createElement("div");
   divRsd.className = "col-4 rsd";
 
+  divRsd.innerHTML =String( await calculateCost(0.8,1.5));
   div.appendChild(divDistance);
   div.appendChild(divEuro);
   div.appendChild(divRsd);

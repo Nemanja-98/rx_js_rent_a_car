@@ -1,4 +1,5 @@
 export class Car {
+    id: number;
     name: string;
     year: number;
     fuelType: string;
@@ -8,7 +9,9 @@ export class Car {
     grades: Array<string>;
     img: string;
     downPayment: number;
-    constructor(name, year, fuelType, kilometerPerLiter, engine, mileage, grades, img, downPayment) {
+    constructor(id :number,name :string, year :number, fuelType :string, kilometerPerLiter :number, engine :string , mileage :number,
+         grades :Array<string>, img :string, downPayment :number) {
+        this.id = id;
         this.name = name;
         this.year = year;
         this.fuelType = fuelType;

@@ -8,13 +8,17 @@ const typeOfFuel = {
 }
 
 export class Fuel {
+    id: number;
     type: string;
     octane: number;
     pricePerLitre: number;
-    constructor(typeKey, octane,price) {
+    availableInCar: Array<number>;
+    constructor(id :number,typeKey :string, octane :number,price :number,carsId :Array<number>) {
+        this.id = id;
         this.type = typeOfFuel[typeKey];
         this.octane = octane;
         this.pricePerLitre=price;
+        this.availableInCar= carsId;
     }
 }
 

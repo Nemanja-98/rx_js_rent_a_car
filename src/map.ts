@@ -1,4 +1,6 @@
 import {} from "google-maps";
+import axios from 'axios'
+//axios.defaults.headers.common['Access-Control-Allow-Origin']='*';
 //var google:any;
 export default function fun() {
   const map = new google.maps.Map(
@@ -62,36 +64,56 @@ export default function fun() {
     return mark;
   }
 
-  function getDirectoins(start, finish) {
-    let dierctionDisplay = new google.maps.DirectionsRenderer();
-    let directionService = new google.maps.DirectionsService();
-
-    dierctionDisplay.setMap(map);
-    const request = {
-      origin: {
-        lat: start.getPosition().lat(),
-        lng: start.getPosition().lng(),
-      },
-      destination: {
-        lat: finish.getPosition().lat(),
-        lng: finish.getPosition().lng(),
-      },
-      travelMode: google.maps.TravelMode.DRIVING,
-    };
-    directionService.route(request, (result, status) => {
-      if (status == "OK") {
-        dierctionDisplay.setDirections(result);
-        console.log("result",result);
-        console.log("dirService",directionService);
-        console.log("dirDisp",dierctionDisplay);
-      }
-    });
+async function getDirectoins(start, finish) {
+  let dierctionDisplay = new google.maps.DirectionsRenderer();
+  let directionService = new google.maps.DirectionsService();
+  console.log(
+    "lat",
+    start.getPosition().lat(),
+    "lng",
+    start.getPosition().lng()
+  );
+  console.log(
+    "lat",
+    finish.getPosition().lat(),
+    "lng",
+    finish.getPosition().lng()
+  );
+  dierctionDisplay.setMap(map);
+  const request = {
+    origin: {
+      lat: start.getPosition().lat(),
+      lng: start.getPosition().lng(),
+    },
+    destination: {
+      lat: finish.getPosition().lat(),
+      lng: finish.getPosition().lng(),
+    },
+    travelMode: google.maps.TravelMode.DRIVING,
+  };
+  
+  directionService.route(request, (result, status) => {
+    if (status == "OK") {
+      dierctionDisplay.setDirections(result);
+    }
+  });
+  //custom hostovan backend jer google matrix api ne moze da se stavi na front end
+  //for getting distance from point A to point B
+  try {
+    const res = await axios.post("http://1ac241a3.ngrok.io/map", request);
+    console.log(res);
+    console.log("filtered", res.data.rows[0].elements[0].distance.value);
+  } catch (err) {
+    console.log(err);
   }
 }
-//custom icon object if i decide to use it
-// const icon = {
-//      url:'',
-//     scaledSize: new google.maps.Size(50, 50),
-//     origin: new google.maps.Point(0,0),
-//     anchor: new google.maps.Point(46.3209, 26.895)
-// };
+}
+//tried and true example nis-belgrade distance and travel time WORKS
+  //https://maps.googleapis.com/maps/api/distancematrix/json?origins=43.329984,21.89525&destinations=44.787197,20.457273&departure_time=now
+  //&key=AIzaSyBrxIhDsh9RhzdmzLgu3xrQtrfhlRntwY4
+
+  // fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${request.origin.lat},${request.origin.lng}
+  // &destinations=${request.destination.lat},${request.destination.lng}&key=AIzaSyBrxIhDsh9RhzdmzLgu3xrQtrfhlRntwY4`)
+  // .then(res =>res.json())
+  // .then(data => { console.log(data)})
+  // .catch(err => console.log(err)); doesnt work 
