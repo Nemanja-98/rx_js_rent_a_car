@@ -1,144 +1,192 @@
 {
-  "cars":[
-      {
-          "id":0,
-          "name":"Fiat 500L",
-          "year":2003,
-          "fuelType":"Gasoline",
-          "kpl":0.5,
-          "engine":"v4",
-          "mileage":109506,
-          "grades":["comfort:5","performance:4","utility:3","durability:2","design:3.5"],
-          "img":"https://pngimage.net/wp-content/uploads/2018/06/fiat-500l-png.png",
-          "downPayment":75
-      },
-      {
-          "id":1,
-          "name":"Fiat Punto",
-          "year":2008,
-          "fuelType":"Petroleum",
-          "kpl":1.2,
-          "engine":"v2",
-          "mileage":82506,
-          "grades":["comfort:2","performance:3","utility:2","durability:1","design:2.5"],
-          "img":"https://pngimage.net/wp-content/uploads/2018/06/fiat-punto-png-6.png",
-          "downPayment":30
-      },
-      {
-          "id":2,
-          "name":"Renault Clio",
-          "year":2010,
-          "fuelType":"Compressed Natural Gas",
-          "kpl":0.9,
-          "engine":"2005Tdi",
-          "mileage":52506,
-          "grades":["comfort:2","performance:3","utility:2","durability:2.5","design:3.5"],
-          "img":"https://pngimage.net/wp-content/uploads/2018/06/renault-clio-png-1.png",
-          "downPayment":45
-      },
-      {
-        "id":3,
-        "name":"Lexus GX 460",
-        "year":2015,
-        "fuelType":"Premium Gasoline",
-        "kpl":0.26,
-        "engine":"4.6-liter V-8",
-        "mileage":33506,
-        "grades":["comfort:5","performance:2","utility:3","durability:5","design:4.5"],
-        "img":"https://cfx-vrf-main-imgs.imgix.net/f/8/3/21279ba91e4263bf1d40d8673566e6adec8ca38f.png?auto=format&fit=clip&w=420",
-        "downPayment":85
+  "cars": [
+    {
+      "id": 0,
+      "name": "Fiat 500L",
+      "year": 2003,
+      "fuelType": "GASOLINE",
+      "kpl": 0.5,
+      "engine": "v4",
+      "mileage": 109506,
+      "grades": [
+        "comfort:5",
+        "performance:4",
+        "utility:3",
+        "durability:2",
+        "design:3.5"
+      ],
+      "img": "https://pngimage.net/wp-content/uploads/2018/06/fiat-500l-png.png",
+      "downPayment": 75
     },
     {
-        "id":4,
-        "name":"Opel Astra Family",
-        "year":2012,
-        "fuelType":"Petrol",
-        "kpl":0.36,
-        "engine":"1.6i A16XER",
-        "mileage":33506,
-        "grades":["comfort:2","performance:3","utility:4","durability:2","design:1.5"],
-        "img":"https://automobile-assets.s3.amazonaws.com/automobile/body/opel-astra-family-2011-2014-1573111766.84.png",
-        "downPayment":25
+      "id": 1,
+      "name": "Fiat Punto",
+      "year": 2008,
+      "fuelType": "PETROLEUM",
+      "kpl": 1.2,
+      "engine": "v2",
+      "mileage": 82506,
+      "grades": [
+        "comfort:2",
+        "performance:3",
+        "utility:2",
+        "durability:1",
+        "design:2.5"
+      ],
+      "img": "https://pngimage.net/wp-content/uploads/2018/06/fiat-punto-png-6.png",
+      "downPayment": 30
     },
     {
-        "id":5,
-        "name":"BMW X3",
-        "year":2018,
-        "fuelType":"Premium Gasoline",
-        "kpl":0.18,
-        "engine":"2.0-liter four-cylinder turbocharged",
-        "mileage":25060,
-        "grades":["comfort:5","performance:2","utility:3","durability:5","design:4.5"],
-        "img":"https://i.ya-webdesign.com/images/2017-bmw-png-1.png",
-        "downPayment":54
+      "id": 2,
+      "name": "Renault Clio",
+      "year": 2010,
+      "fuelType": "CNG",
+      "kpl": 0.9,
+      "engine": "2005Tdi",
+      "mileage": 52506,
+      "grades": [
+        "comfort:2",
+        "performance:3",
+        "utility:2",
+        "durability:2.5",
+        "design:3.5"
+      ],
+      "img": "https://pngimage.net/wp-content/uploads/2018/06/renault-clio-png-1.png",
+      "downPayment": 45
     },
     {
-        "id":6,
-        "name":"Citroen C4 Picasso",
-        "year":2016,
-        "fuelType":"Gasoline",
-        "kpl":0.46,
-        "engine":"1.2 PureTech 6AT",
-        "mileage":84130,
-        "grades":["comfort:2.5","performance:3","utility:3","durability:2","design:3.5"],
-        "img":"https://automobile-assets.s3.amazonaws.com/automobile/body/citroen-c4-picasso-2013-2019-1523083027.37.png",
-        "downPayment":40
+      "id": 3,
+      "name": "Lexus GX 460",
+      "year": 2015,
+      "fuelType": "ARKTIK",
+      "kpl": 0.26,
+      "engine": "4.6-liter V-8",
+      "mileage": 33506,
+      "grades": [
+        "comfort:5",
+        "performance:2",
+        "utility:3",
+        "durability:5",
+        "design:4.5"
+      ],
+      "img": "https://cfx-vrf-main-imgs.imgix.net/f/8/3/21279ba91e4263bf1d40d8673566e6adec8ca38f.png?auto=format&fit=clip&w=420",
+      "downPayment": 85
     },
     {
-        "id":7,
-        "name":"Opel Corsa",
-        "year":2017,
-        "fuelType":"Petrol",
-        "kpl":0.62,
-        "engine":"GM B14XEL Spark Ignition 4-stroke",
-        "mileage":93506,
-        "grades":["comfort:5","performance:2","utility:3","durability:5","design:4.5"],
-        "img":"https://insularcar.com/wp-content/uploads/2017/10/opel-corsa.png",
-        "downPayment":15
+      "id": 4,
+      "name": "Opel Astra Family",
+      "year": 2012,
+      "fuelType": "PETROLEUM",
+      "kpl": 0.36,
+      "engine": "1.6i A16XER",
+      "mileage": 33506,
+      "grades": [
+        "comfort:2",
+        "performance:3",
+        "utility:4",
+        "durability:2",
+        "design:1.5"
+      ],
+      "img": "https://automobile-assets.s3.amazonaws.com/automobile/body/opel-astra-family-2011-2014-1573111766.84.png",
+      "downPayment": 25
+    },
+    {
+      "id": 5,
+      "name": "BMW X3",
+      "year": 2018,
+      "fuelType": "ARKTIK",
+      "kpl": 0.18,
+      "engine": "2.0-liter four-cylinder turbocharged",
+      "mileage": 25060,
+      "grades": [
+        "comfort:5",
+        "performance:2",
+        "utility:3",
+        "durability:5",
+        "design:4.5"
+      ],
+      "img": "https://i.ya-webdesign.com/images/2017-bmw-png-1.png",
+      "downPayment": 54
+    },
+    {
+      "id": 6,
+      "name": "Citroen C4 Picasso",
+      "year": 2016,
+      "fuelType": "GASOLINE",
+      "kpl": 0.46,
+      "engine": "1.2 PureTech 6AT",
+      "mileage": 84130,
+      "grades": [
+        "comfort:2.5",
+        "performance:3",
+        "utility:3",
+        "durability:2",
+        "design:3.5"
+      ],
+      "img": "https://automobile-assets.s3.amazonaws.com/automobile/body/citroen-c4-picasso-2013-2019-1523083027.37.png",
+      "downPayment": 40
+    },
+    {
+      "id": 7,
+      "name": "Opel Corsa",
+      "year": 2017,
+      "fuelType": "ETHANOL",
+      "kpl": 0.62,
+      "engine": "GM B14XEL Spark Ignition 4-stroke",
+      "mileage": 93506,
+      "grades": [
+        "comfort:5",
+        "performance:2",
+        "utility:3",
+        "durability:5",
+        "design:4.5"
+      ],
+      "img": "https://insularcar.com/wp-content/uploads/2017/10/opel-corsa.png",
+      "downPayment": 15
     }
   ],
-  "fuels":[
-      {
-          "id":0,
-          "name":"Gasoline",
-          "purity": 89,
-          "price": 1.45,
-          "availableInCar": [0,1,2,3,4,5,6,7]
-      },
-      {
-          "id":1,
-          "name":"Petrol",
-          "purity": 87,
-          "price": 1.38,
-          "availableInCar": [0,2,4,5,7]
-      },
-      {
-        "id":2,
-        "name":"Diesel",
-        "purity": 95,
-        "price": 1.49,
-        "availableInCar": [0,2,5]
-      },
-      {
-        "id":3,
-        "name":"Arktik",
-        "purity": 85,
-        "price": 1.95,
-        "availableInCar": [0,3]
-      },
-      {
-        "id":4,
-        "name":"Ethanol",
-        "purity": 65,
-        "price": 1.25,
-        "availableInCar": [0]
-      },
-      {
-        "id":5,
-        "name":"Premium Gasoline",
-        "purity": 65,
-        "price": 1.65,
-        "availableInCar": [0,1,3,4,6,7]
-      }
+  "fuels": [
+    {
+      "id": 0,
+      "name": "GASOLINE",
+      "purity": 89,
+      "price": 1.45,
+      "availableInCar": [0, 1, 2, 3, 4, 5, 6, 7]
+    },
+    {
+      "id": 1,
+      "name": "DIESEL",
+      "purity": 87,
+      "price": 1.38,
+      "availableInCar": [0, 2, 4, 5, 7]
+    },
+    {
+      "id": 2,
+      "name": "ARKTIK",
+      "purity": 95,
+      "price": 1.49,
+      "availableInCar": [0, 2, 5]
+    },
+    {
+      "id": 3,
+      "name": "ETHANOL",
+      "purity": 85,
+      "price": 1.95,
+      "availableInCar": [0, 3]
+    },
+    {
+      "id": 4,
+      "name": "PETROLEUM",
+      "purity": 65,
+      "price": 1.25,
+      "availableInCar": [0]
+    },
+    {
+      "id": 5,
+      "name": "CNG",
+      "purity": 65,
+      "price": 1.65,
+      "availableInCar": [0, 1, 3, 4, 6, 7]
+    }
   ]
 }

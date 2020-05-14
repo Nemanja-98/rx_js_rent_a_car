@@ -4,7 +4,7 @@ const typeOfFuel = {
     ARKTIK: 'Premium Diesel Arktik',
     ETHANOL: 'Ethanol',
     PETROLEUM: 'Liquified Petroleum Gas',
-    NATURAL_GAS: 'Compressed Natural Gas',
+    CNG: 'Compressed Natural Gas',
 }
 
 export class Fuel {
