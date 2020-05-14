@@ -102,7 +102,7 @@ async function getDirectoins(start, finish) {
   //custom hostovan backend jer google matrix api ne moze da se stavi na front end
   //for getting distance from point A to point B
   try {
-    const res = await axios.post("http://a1befdb2.ngrok.io/map", request);
+    const res = await axios.post("http://localhost:3000/map", request);
     console.log(res);
     // console.log("filtered", res.data.rows[0].elements[0].distance.value);
     distance=res.data.rows[0].elements[0].distance.value;
